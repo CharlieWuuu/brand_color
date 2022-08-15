@@ -1,0 +1,300 @@
+@charset "UTF-8";
+.component_container .component .limit_button, .component_container .component .destination, .component_container .component, .component_container, .font_container .font .logo_container, .font_container .font, .font_container, .colorPalette_container .colorChart, .colorPalette_container, .example_container, .title, .header, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 微軟正黑體;
+  color: #333333;
+}
+
+body {
+  width: calc(100% - 40px);
+  flex-direction: column;
+  border: 20px solid #26BEC9;
+}
+
+.header {
+  width: 90%;
+  height: 200px;
+}
+.header svg {
+  width: 300px;
+  margin-top: 60px;
+}
+@media screen and (max-width: 500px) {
+  .header svg {
+    width: 200px;
+  }
+}
+
+.title {
+  position: relative;
+  width: 90%;
+  padding: 20px 0;
+}
+.title p {
+  padding: 0 20px;
+  background-color: #fff;
+}
+.title::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: calc(100% - 20px);
+  border: 0.3px solid #333333;
+}
+
+.example_container {
+  width: 70%;
+  flex-wrap: wrap;
+}
+.example_container .example {
+  flex: 1;
+  width: 160px;
+  height: 300px;
+  margin: 10px;
+  cursor: point;
+  transition: all 0.3s;
+}
+.example_container .example img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.example_container .example:hover {
+  flex: 3;
+}
+@media screen and (max-width: 1055px) {
+  .example_container {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+  .example_container .example {
+    min-width: 160px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .example_container .example {
+    min-width: 160px;
+    height: 64px;
+  }
+}
+
+.colorPalette_container {
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.colorPalette_container .colorChart {
+  margin: 10px;
+  flex-direction: column;
+  width: fit-content;
+}
+.colorPalette_container .colorChart .color {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin: 8px 0px;
+}
+.colorPalette_container .colorChart #blue {
+  background-color: #26BEC9;
+}
+.colorPalette_container .colorChart #yellow {
+  background-color: #FFB400;
+}
+.colorPalette_container .colorChart #red {
+  background-color: #EF7A70;
+}
+.colorPalette_container .colorChart #black {
+  background-color: #333333;
+}
+.colorPalette_container .colorChart #gradient_blue {
+  background-color: #36A1FA;
+}
+.colorPalette_container .colorChart .hexCode {
+  text-align: center;
+}
+
+.font_container {
+  width: 70%;
+  flex-wrap: wrap;
+}
+.font_container .font {
+  flex: 1;
+  min-width: 240px;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px 4px;
+}
+.font_container .font .logo_container {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 0 30px 0;
+}
+.font_container .font .logo_container svg {
+  width: 80%;
+}
+.font_container .font h1 {
+  font-size: 40px;
+}
+.font_container .font h2 {
+  font-size: 24px;
+}
+.font_container .font p {
+  margin-top: 16px;
+}
+.font_container #fontBlue {
+  background-color: #31cdd8;
+}
+.font_container #fontYellow {
+  background-color: #ffbc1a;
+}
+.font_container #fontRed {
+  background-color: #f28f87;
+}
+
+.component_container {
+  width: 70%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.component_container .component {
+  min-width: 100px;
+  flex-direction: column;
+  margin: 0 10px;
+  padding: 10px;
+}
+.component_container .component .login_button {
+  position: relative;
+  padding: 4px 20px;
+  border: 1.5px solid #26BEC9;
+  border-radius: 5px;
+  color: #1e959e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.component_container .component .login_button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #26BEC9;
+  transition: all 0.3s;
+  z-index: -1;
+}
+.component_container .component .login_button:hover {
+  color: white;
+}
+.component_container .component .login_button:hover::before {
+  width: 100%;
+}
+.component_container .component .destination {
+  padding: 4px 12px 4px 8px;
+  background-color: #fffbf0;
+  cursor: pointer;
+}
+.component_container .component .destination svg {
+  height: 20px;
+  transition: all 0.3s;
+}
+.component_container .component .destination p {
+  color: #cc9000;
+}
+.component_container .component .destination:hover svg {
+  transform: translateY(-6px);
+}
+.component_container .component .limit_button {
+  padding: 4px 8px;
+  color: white;
+  background-color: #EF7A70;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.component_container .component .limit_button img {
+  margin-left: 6px;
+  width: 14px;
+  filter: brightness(100);
+  animation-name: alert;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.component_container .component .limit_button:hover img {
+  animation-name: keepAlert;
+  animation-duration: 0.1s;
+  animation-iteration-count: infinite;
+}
+.component_container .component .butNow_button {
+  padding: 4px 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(55deg, #26BEC9, #36A1FA, #26BEC9);
+  background-size: 300% 300%;
+  animation: gradient-animation 3s ease infinite;
+}
+.component_container .component .butNow_button:hover {
+  animation-duration: 1s;
+}
+
+@keyframes alert {
+  49% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  51% {
+    transform: translateX(3px);
+  }
+  52% {
+    transform: translateX(-3px);
+  }
+  53% {
+    transform: translateX(3px);
+  }
+  54% {
+    transform: translateX(-3px);
+  }
+  55% {
+    transform: translateX(3px);
+  }
+  56% {
+    transform: translateX(-3px);
+  }
+  57% {
+    transform: translateX(0px);
+  }
+}
+@keyframes keepAlert {
+  0% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(-3px);
+  }
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}/*# sourceMappingURL=style.css.map */

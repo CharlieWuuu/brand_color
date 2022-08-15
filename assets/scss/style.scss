@@ -1,0 +1,284 @@
+$color_primary: #26BEC9;
+$color_secondary: #FFB400;
+$color_accent: #EF7A70;
+$color_black: #333333;
+$color_gradient_blue: #36A1FA;
+
+%flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 微軟正黑體;
+  color: #333333;
+  // border: 1px solid black;
+}
+
+body{
+  width: calc(100% - 40px);
+  @extend %flex-center;
+  flex-direction: column;
+  border: 20px solid #26BEC9;
+}
+
+.header{
+  width: 90%;
+  height: 200px;
+  @extend %flex-center;
+  svg{
+    width: 300px;
+    margin-top: 60px;
+    @media screen and (max-width: 500px){
+      width: 200px;
+    }
+  }
+}
+
+.title{
+  position: relative;
+  width: 90%;
+  @extend %flex-center;
+  padding: 20px 0;
+  p{
+    padding: 0 20px;
+    background-color: #fff;
+  }
+  &::before{
+    position: absolute;
+    z-index: -1;
+    content:'';
+    width: calc(100% - 20px);
+    border: 0.3px solid #333333;
+  }
+}
+
+.example_container{
+  width: 70%;
+  @extend %flex-center;
+  flex-wrap: wrap;
+  .example{
+    flex: 1;
+    width: 160px;
+    height: 300px;
+    margin: 10px;
+    cursor: point;
+    transition: all .3s;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:hover{
+      flex: 3;
+    }
+  }
+  @media screen and (max-width: 1055px){
+    width: 90%;
+    flex-wrap: wrap;
+    .example{
+      min-width: 160px;
+      height: 200px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    .example{
+      min-width: 160px;
+      height: 64px;
+    }
+  }
+}
+
+.colorPalette_container{
+  width: 70%;
+  @extend %flex-center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .colorChart{
+    margin: 10px;
+    @extend %flex-center;
+    flex-direction: column;
+    width: fit-content;
+    .color{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      margin: 8px 0px;
+    }
+    #blue{background-color: $color_primary;}
+    #yellow{background-color: $color_secondary;}
+    #red{background-color: $color_accent;}
+    #black{background-color: $color_black;}
+    #gradient_blue{background-color: $color_gradient_blue;}
+    .hexCode{
+      text-align: center;
+    }
+  }
+}
+
+.font_container{
+  width: 70%;
+  @extend %flex-center;
+  flex-wrap: wrap;
+  .font{
+    flex: 1;
+    min-width: 240px;
+    @extend %flex-center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px 4px;
+
+    .logo_container{
+      width: 80px;
+      height: 80px;
+      @extend %flex-center;
+      background-color: white;
+      border-radius: 10px;
+      margin: 10px 0 30px 0;
+      svg{
+        width: 80%;
+      }
+    }
+
+    h1{
+      font-size: 40px;
+    }
+    h2{
+      font-size: 24px;
+    }
+    p{
+      margin-top: 16px;
+    }
+  }
+  #fontBlue{background-color: lighten($color_primary, 5);}
+  #fontYellow{background-color: lighten($color_secondary, 5);}
+  #fontRed{background-color: lighten($color_accent, 5);}
+}
+
+.component_container{
+  width: 70%;
+  @extend %flex-center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  .component{
+    min-width: 100px;
+    @extend %flex-center;
+    flex-direction: column;
+    margin: 0 10px;
+    padding: 10px;
+    .login_button{
+      position: relative;
+      padding: 4px 20px;
+      border: 1.5px solid $color_primary;
+      border-radius: 5px;
+      color: darken($color_primary, 10);
+      cursor: pointer;
+      transition: all .3s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: $color_primary;
+        transition: all .3s;
+        z-index: -1;
+      }
+      &:hover{
+        color: white;
+        &::before{
+          width: 100%;
+        }
+      }
+    }
+
+    .destination{
+      @extend %flex-center;
+      padding: 4px 12px 4px 8px;
+      background-color: lighten($color_secondary, 47);
+      cursor: pointer;
+      svg{
+        height: 20px;
+        transition: all .3s;
+      }
+      p{
+        color: darken($color_secondary,10);
+      }
+      &:hover{
+        svg{
+          transform: translateY(-6px);
+        }
+      }
+    }
+    .limit_button{
+      @extend %flex-center;
+      padding: 4px 8px;
+      color: white;
+      background-color: $color_accent;
+      border-radius: 5px;
+      cursor: pointer;
+      img{
+        margin-left: 6px;
+        width: 14px;
+        filter: brightness(100);
+        animation-name: alert;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      &:hover{
+        img{
+          animation-name: keepAlert;
+          animation-duration: .1s;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+    .butNow_button{
+      padding: 4px 20px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      background: linear-gradient(
+          55deg,
+          $color_primary,
+          $color_gradient_blue,
+          $color_primary,
+        );
+      background-size: 300% 300%;
+      animation: gradient-animation 3s ease infinite;
+      &:hover{
+          animation-duration: 1s;
+      }
+    }
+  }
+}
+
+@keyframes alert {
+  49%{transform: translateX(0px);}
+  50%{transform: translateX(-3px);}
+  51%{transform: translateX(3px);}
+  52%{transform: translateX(-3px);}
+  53%{transform: translateX(3px);}
+  54%{transform: translateX(-3px);}
+  55%{transform: translateX(3px);}
+  56%{transform: translateX(-3px);}
+  57%{transform: translateX(0px);}
+}
+
+@keyframes keepAlert {
+  0%{transform: translateX(-3px);}
+  50%{transform: translateX(3px);}
+  100%{transform: translateX(-3px);}
+}
+
+@keyframes gradient-animation {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
